@@ -1,6 +1,13 @@
 <img width="2914" height="1486" alt="image" src="https://github.com/user-attachments/assets/4494bd64-0c60-425a-b18c-f95b9d5b9472" />
 <img width="2899" height="1493" alt="image" src="https://github.com/user-attachments/assets/bc84ab38-5302-4c4e-8208-1d073b518b45" />
 
+![Poker Table](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
+![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
+![GitHub stars](https://img.shields.io/github/stars/EMMA019/AI_pokergame?style=social)
+![GitHub forks](https://img.shields.io/github/forks/EMMA019/AI_pokergame?style=social)
+![GitHub issues](https://img.shields.io/github/issues/EMMA019/AI_pokergame)
+![License](https://img.shields.io/github/license/EMMA019/AI_pokergame)
+
 ```markdown
 # 🎴 Midnight Luxury Poker
 
