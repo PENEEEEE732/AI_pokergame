@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midnight Luxury Poker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <div id="lobby" class="screen active">
+            <div class="lobby-container">
+                <h1 class="game-title">🎴 Midnight Luxury Poker</h1>
+                <div class="lobby-form">
+                    <input type="text" id="usernameInput" placeholder="Enter Player Name" maxlength="20">
+                    <button id="joinGameBtn" class="btn-primary">Join Game</button>
+                </div>
+                <div class="ai-controls">
+                    <button id="addEasyAI" class="btn-secondary">Add AI Easy</button>
+                    <button id="addNormalAI" class="btn-secondary">Add AI Normal</button>
+                    <button id="addHardAI" class="btn-secondary">Add AI Hard</button>
+                </div>
+            </div>
+        </div>
+
+        <div id="game" class="screen">
+            <div class="game-info">
+                <div class="phase-display" id="phaseDisplay">Waiting for Players</div>
+                
+                <button id="startGameBtn" class="btn-accent" style="display: none; margin: 10px auto;">Start Game</button>
+                
+                <div class="pot-display">
+                    <div id="mainPot" class="pot">Main Pot: $0</div>
+                    <div id="sidePots" class="side-pots"></div>
+                </div>
+            </div>
+
+            <div class="poker-table">
+                <div class="community-cards" id="communityCards">
+                    </div>
+
+                <div class="player-seat seat-0" data-seat="0">
+                    <div class="player-info">
+                        <div class="player-avatar"></div>
+                        <div class="player-name">-</div>
+                        <div class="player-stack">$0</div>
+                        <div class="player-bet">$0</div>
+                        <div class="player-status"></div>
+                    </div>
+                    <div class="player-cards"></div>
+                    <div class="dealer-button">D</div>
+                </div>
+
+                <div class="player-seat seat-1" data-seat="1">
+                    <div class="player-info">
+                        <div class="player-avatar"></div>
+                        <div class="player-name">-</div>
+                        <div class="player-stack">$0</div>
+                        <div class="player-bet">$0</div>
+                        <div class="player-status"></div>
+                    </div>
+                    <div class="player-cards"></div>
+                    <div class="dealer-button">D</div>
+                </div>
+
+                <div class="player-seat seat-2" data-seat="2">
+                    <div class="player-info">
+                        <div class="player-avatar"></div>
+                        <div class="player-name">-</div>
+                        <div class="player-stack">$0</div>
+                        <div class="player-bet">$0</div>
+                        <div class="player-status"></div>
+                    </div>
+                    <div class="player-cards"></div>
+                    <div class="dealer-button">D</div>
+                </div>
+
+                <div class="player-seat seat-3" data-seat="3">
+                    <div class="player-info">
+                        <div class="player-avatar"></div>
+                        <div class="player-name">-</div>
+                        <div class="player-stack">$0</div>
+                        <div class="player-bet">$0</div>
+                        <div class="player-status"></div>
+                    </div>
+                    <div class="player-cards"></div>
+                    <div class="dealer-button">D</div>
+                </div>
+
+                <div class="player-seat seat-4" data-seat="4">
+                    <div class="player-info">
+                        <div class="player-avatar"></div>
+                        <div class="player-name">-</div>
+                        <div class="player-stack">$0</div>
+                        <div class="player-bet">$0</div>
+                        <div class="player-status"></div>
+                    </div>
+                    <div class="player-cards"></div>
+                    <div class="dealer-button">D</div>
+                </div>
+
+                <div class="player-seat seat-5" data-seat="5">
+                    <div class="player-info">
+                        <div class="player-avatar"></div>
+                        <div class="player-name">-</div>
+                        <div class="player-stack">$0</div>
+                        <div class="player-bet">$0</div>
+                        <div class="player-status"></div>
+                    </div>
+                    <div class="player-cards"></div>
+                    <div class="dealer-button">D</div>
+                </div>
+            </div>
+
+            <div id="actionPanel" class="action-panel" style="display: none;">
+                <div class="action-buttons">
+                    <button id="foldBtn" class="btn-fold">Fold</button>
+                    <button id="checkCallBtn" class="btn-call">Check</button>
+                    <button id="betRaiseBtn" class="btn-raise">Bet</button>
+                </div>
+                
+                <div id="bettingControls" class="betting-controls" style="display: none;">
+                    <div class="slider-container">
+                        <input type="range" id="betSlider" min="0" max="1000" value="0" class="slider">
+                        <div class="slider-labels">
+                            <span id="minBet">$0</span>
+                            <span id="currentBet">$0</span>
+                            <span id="maxBet">$1000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="preset-buttons">
+                        <button class="preset-btn" data-multiplier="0.5">1/2 Pot</button>
+                        <button class="preset-btn" data-multiplier="1">Pot</button>
+                        <button class="preset-btn" data-multiplier="all">All-in</button>
+                    </div>
+                    
+                    <div class="confirm-buttons">
+                        <button id="confirmBet" class="btn-confirm">Confirm Bet</button>
+                        <button id="cancelBet" class="btn-cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="game-log">
+                <div id="gameMessages" class="messages"></div>
+            </div>
+        </div>
+
+        <div id="winnerModal" class="modal" style="display: none;">
+            <div class="modal-content">
+                <h2>🎉 Winner!</h2>
+                <div id="winnerList"></div>
+                <button id="nextHandBtn" class="btn-primary">Next Hand</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

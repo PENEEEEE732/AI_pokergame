@@ -1,0 +1,44 @@
+# 🐍 Python
+
+# Byte-code and temporary files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+
+# Environment
+.env
+.venv
+venv/
+env/
+/instance
+
+# Package manager files
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.cache
+nosetests.xml
+coverage.xml
+
+# Distribution/packaging
+dist/
+build/
+*.egg-info/
+
+# Logs and Server Output
+*.log
+poker_server.log
+tmp/
+
+# 💡 IDE and Editor Files
+.vscode/
+.idea/
+*.swp
+*~
+
+# 🖼️ Frontend Dependencies (if using a large node_modules/ or similar for JS)
+# Uncomment if your frontend/ uses npm/node
+# frontend/node_modules/
