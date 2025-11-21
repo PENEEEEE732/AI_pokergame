@@ -6,11 +6,6 @@
 
 A sophisticated, real-time Texas Hold'em poker game built with Flask-SocketIO backend and modern frontend. Features AI opponents with multiple difficulty levels and a luxurious casino-themed interface.
 
-![Poker Table](https://img.shields.io/badge/Status-Production%20Ready-brightgreen)
-![Python](https://img.shields.io/badge/Python-3.8%2B-blue)
-![Flask](https://img.shields.io/badge/Flask-2.3.3-green)
-![SocketIO](https://img.shields.io/badge/SocketIO-5.3.6-orange)
-
 ## ✨ Features
 
 ### 🎮 Gameplay
