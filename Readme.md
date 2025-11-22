@@ -1,5 +1,6 @@
 ```markdown
 # 🎴 Midnight Luxury Poker
+<img width="1854" height="946" alt="image" src="https://github.com/user-attachments/assets/d58343e1-7e45-406f-82dd-394b44c041f7" />
 
 A sophisticated, real-time Texas Hold'em poker game built with Flask-SocketIO backend and modern frontend. Features AI opponents with multiple difficulty levels and a luxurious casino-themed interface.
 
@@ -292,3 +293,4 @@ This README provides:
 
 
 The structure follows best practices for open-source projects and should help both users and developers understand and work with your codebase effectively.
+
