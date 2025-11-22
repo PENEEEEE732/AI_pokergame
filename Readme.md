@@ -8,7 +8,6 @@
 ![GitHub issues](https://img.shields.io/github/issues/EMMA019/AI_pokergame)
 ![License](https://img.shields.io/github/license/EMMA019/AI_pokergame)
 
-承知いたしました。これまでの議論（Flask、SocketIO、SQLAlchemyの使用、および.env.sampleの必要性）を反映した、完成版の英語のReadme.mdを作成します。
 🃏 Midnight Luxury Poker
 > A sophisticated online Texas Hold'em game where a challenging AI serves as your opponent, providing a realistic, real-time poker experience.
 > 
