@@ -46,11 +46,8 @@ A sophisticated, real-time Texas Hold'em poker game built with Flask-SocketIO ba
 
 ### Installation
 
-1. **Clone or unpack the project**
-   ```bash
-   # If using the unpacker
-   python unpacker.py poker_project.md
-   ```
+1. **Clone the project**
+   e https://github.com/EMMA019/AI_pokergame.git cd AI_pokergame
 
 2. **Run the automated setup**
    ```bash
