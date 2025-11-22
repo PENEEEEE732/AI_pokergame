@@ -18,6 +18,7 @@
  * 📡 Real-Time Gameplay: Leverages Flask-SocketIO for instant, event-driven game state synchronization.
  * 🤖 AI Opponent: Contains sophisticated poker logic within backend/app/poker/ai.py to provide a challenging strategic experience.
  * ⚖️ MIT Licensed: Free for use, modification, and distribution.
+ * 
 🛠️ Technology Stack
 | Category | Component | Key Version |
 |---|---|---|
@@ -50,25 +51,26 @@ python -m venv venv
    cp backend/.env.sample backend/.env
 
    backend/.env.sample Content:
-   This file specifies critical configuration for the Flask application and the database connection.
-   # Flask Application Settings
-FLASK_ENV=development
-FLASK_APP=run.py
-SECRET_KEY="YOUR_RANDOM_SECRET_KEY_HERE"
+# --- Application Security ---
+# Generate a strong secret key: python -c "import secrets; print(secrets.token_hex(32))"
+SECRET_KEY=your seacret key here
+# --- Debug & Development ---
+FLASK_DEBUG=True
+FLASK_RUN_HOST=127.0.0.1
+FLASK_RUN_PORT=5000
+# --- Database Configuration ---
+# SQLite (development)
+DATABASE_URL=sqlite:///poker.db
+# PostgreSQL (production example)
+# DATABASE_URL=postgresql://username:password@localhost/poker_db
+# --- CORS Settings ---
+# For production, specify allowed origins instead of *
+# CORS_ALLOWED_ORIGINS=http://localhost:3000,https://yourdomain.com
+# --- Game Settings ---
+DEFAULT_CHIPS=10000
+SMALL_BLIND=50
+BIG_BLIND=100
 
-# Database Configuration (Using SQLite for development)
-# The development.sqlite file will be created in the project root.
-SQLALCHEMY_DATABASE_URI=sqlite:///development.sqlite
-
-# Real-time Communication Setup (Optional: for scaling)
-# SOCKETIO_MESSAGE_QUEUE=redis://localhost:6379/0  
-
-   Note: Ensure you replace "YOUR_RANDOM_SECRET_KEY_HERE" with a secure, random string in your .env file.
- * Run the Server
-   Since the application uses SocketIO, it should be launched using an event-driven server like eventlet (as specified in requirements.txt).
-   python backend/run.py
-
-   The server should start on a local address, typically http://127.0.0.1:5000.
 3. Access the Frontend
 Once the server is running, open the main page in your web browser:
  * Access the URL provided by the running Flask server (e.g., http://127.0.0.1:5000).
