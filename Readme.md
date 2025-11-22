@@ -8,278 +8,89 @@
 ![GitHub issues](https://img.shields.io/github/issues/EMMA019/AI_pokergame)
 ![License](https://img.shields.io/github/license/EMMA019/AI_pokergame)
 
-```markdown
-# 🎴 Midnight Luxury Poker
+承知いたしました。これまでの議論（Flask、SocketIO、SQLAlchemyの使用、および.env.sampleの必要性）を反映した、完成版の英語のReadme.mdを作成します。
+🃏 Midnight Luxury Poker
+> A sophisticated online Texas Hold'em game where a challenging AI serves as your opponent, providing a realistic, real-time poker experience.
+> 
+🌟 Project Overview
+"Midnight Luxury Poker" is a web application designed to let players enjoy Texas Hold'em against a dedicated AI opponent. The system is built on a robust Flask backend, utilizing Flask-SocketIO for real-time communication, and a clean, rich frontend built with standard web technologies. It offers a smooth, real-time gaming experience focused on strategic play against an intelligent AI.
+🚀 Features
+ * 💻 Full-Stack Architecture: Powered by Flask on the backend, with persistence handled by SQLAlchemy, and a responsive frontend using HTML/CSS/JavaScript.
+ * 📡 Real-Time Gameplay: Leverages Flask-SocketIO for instant, event-driven game state synchronization.
+ * 🤖 AI Opponent: Contains sophisticated poker logic within backend/app/poker/ai.py to provide a challenging strategic experience.
+ * ⚖️ MIT Licensed: Free for use, modification, and distribution.
+🛠️ Technology Stack
+| Category | Component | Key Version |
+|---|---|---|
+| Web Framework | Flask | Flask==2.3.3 |
+| Real-Time Comm. | Flask-SocketIO | Flask-SocketIO==5.3.6 |
+| Database ORM | SQLAlchemy / Flask-SQLAlchemy | SQLAlchemy==2.0.25, Flask-SQLAlchemy==3.1.1 |
+| WSGI Server | gunicorn / eventlet | gunicorn==21.2.0, eventlet==0.33.3 |
+| Config/Tools | python-dotenv / Werkzeug | python-dotenv==1.0.1, Werkzeug==2.3.8 |
+| Frontend | HTML5, CSS3, JavaScript |  |
+⚙️ Setup and Running the Application
+1. Clone the Repository
+git clone https://github.com/EMMA019/AI_pokergame.git
+cd AI_pokergame
 
-A sophisticated, real-time Texas Hold'em poker game built with Flask-SocketIO backend and modern frontend. Features AI opponents with multiple difficulty levels and a luxurious casino-themed interface.
+2. Backend Setup
+You will need a Python environment (Python 3.x recommended).
+ * Create and Activate a Virtual Environment
+   # Linux/macOS
+python3 -m venv venv
+source venv/bin/activate
+# Windows
+python -m venv venv
+.\venv\Scripts\activate
 
-## ✨ Features
+ * Install Dependencies
+   pip install -r backend/requirements.txt
 
-### 🎮 Gameplay
-- **Real-time Texas Hold'em** with full poker rules
-- **Multiplayer support** - Play with friends or AI opponents
-- **Smart AI opponents** with three difficulty levels (Easy, Normal, Hard)
-- **Complete hand evaluation** and pot management
-- **Side pot handling** for all-in scenarios
-- **Responsive design** that works on desktop and mobile
+ * Configure Environment Variables (.env) 📝
+   Copy the sample file to create your local environment configuration file:
+   cp backend/.env.sample backend/.env
 
-### 🎨 User Experience
-- **Luxury casino theme** with midnight black and gold accents
-- **Smooth animations** for card dealing, chip movements, and pot distribution
-- **Intuitive betting interface** with slider and preset bet buttons
-- **Real-time game state updates** with Socket.IO
-- **Winner announcements** with hand information
+   backend/.env.sample Content:
+   This file specifies critical configuration for the Flask application and the database connection.
+   # Flask Application Settings
+FLASK_ENV=development
+FLASK_APP=run.py
+SECRET_KEY="YOUR_RANDOM_SECRET_KEY_HERE"
 
-### 🛠 Technical
-- **Modular architecture** with separated game logic and UI
-- **Thread-safe game engine** with proper locking
-- **Database integration** for player persistence
-- **Comprehensive error handling** and logging
-- **Easy deployment** with production-ready configuration
+# Database Configuration (Using SQLite for development)
+# The development.sqlite file will be created in the project root.
+SQLALCHEMY_DATABASE_URI=sqlite:///development.sqlite
 
-## 🚀 Quick Start
+# Real-time Communication Setup (Optional: for scaling)
+# SOCKETIO_MESSAGE_QUEUE=redis://localhost:6379/0  
 
-### Prerequisites
-- Python 3.8 or higher
-- pip (Python package manager)
-- Modern web browser with JavaScript enabled
+   Note: Ensure you replace "YOUR_RANDOM_SECRET_KEY_HERE" with a secure, random string in your .env file.
+ * Run the Server
+   Since the application uses SocketIO, it should be launched using an event-driven server like eventlet (as specified in requirements.txt).
+   python backend/run.py
 
-### Installation
+   The server should start on a local address, typically http://127.0.0.1:5000.
+3. Access the Frontend
+Once the server is running, open the main page in your web browser:
+ * Access the URL provided by the running Flask server (e.g., http://127.0.0.1:5000).
+📂 Project Structure
+AI_pokergame/
+├── backend/                  # Server-side (Flask/Python)
+│   ├── app/
+│   │   ├── poker/            # Core Poker Game Logic
+│   │   │   ├── ai.py         # AI Strategy and Logic
+│   │   │   ├── game.py       # Game State Management
+│   │   │   └── routes.py     # Flask Blueprint/API Endpoints
+│   ├── config.py             # Flask Configuration
+│   ├── .env.sample           # Template for Environment Variables
+│   └── requirements.txt      # Python Dependencies
+├── frontend/                 # Client-side (Web)
+│   ├── index.html            # Main Page Structure
+│   ├── script.js             # Client-side Game Logic
+│   └── style.css             # Styling
+├── .gitignore                # Files/folders to ignore in Git
+├── LICENCE                   # MIT License details
+└── Readme.md                 # This file
 
-1. **Clone the project**
-   e https://github.com/EMMA019/AI_pokergame.git cd AI_pokergame
-
-2. **Run the automated setup**
-   ```bash
-   python start_server.py
-   ```
-   This will:
-   - Check your Python environment
-   - Install required dependencies
-   - Create configuration files
-   - Start the development server
-
-3. **Manual setup (alternative)**
-   ```bash
-   # Install dependencies
-   pip install -r requirements.txt
-   
-   # Start the server
-   python run.py
-   ```
-
-4. **Access the game**
-   Open your browser and navigate to:
-   ```
-   http://127.0.0.1:5000
-   ```
-
-## 🎯 How to Play
-
-### Getting Started
-1. Enter your player name in the lobby
-2. Add AI opponents using the difficulty buttons
-3. Click "Start Game" to begin
-4. The game automatically handles dealing and betting rounds
-
-### Game Flow
-1. **Blinds**: Small and big blinds are posted automatically
-2. **Pre-flop**: Receive your hole cards and begin betting
-3. **Flop**: Three community cards are revealed
-4. **Turn**: Fourth community card revealed
-5. **River**: Final community card revealed
-6. **Showdown**: Remaining players reveal hands, best hand wins
-
-### Betting Actions
-- **Fold**: Discard your hand and sit out the current round
-- **Check**: Stay in the game without betting (when no bet to call)
-- **Call**: Match the current bet amount
-- **Raise**: Increase the current bet (must meet minimum raise requirements)
-- **All-in**: Bet all your remaining chips
-
-## 🏗 Project Structure
-
-```
-midnight-luxury-poker/
-├── 📁 app/                    # Backend application
-│   ├── __init__.py           # Flask app factory
-│   ├── extensions.py         # Database and SocketIO initialization
-│   └── 📁 poker/             # Poker game logic
-│       ├── __init__.py       # Blueprint registration
-│       ├── models.py         # Database models (User)
-│       ├── game.py          # Core game logic (Game, Player, Deck classes)
-│       ├── ai.py            # AI strategies (Easy, Normal, Hard)
-│       ├── events.py        # SocketIO event handlers
-│       ├── routes.py        # HTTP API endpoints
-│       └── exceptions.py    # Custom game exceptions
-├── 📁 frontend/              # Frontend assets
-│   ├── index.html           # Main HTML file
-│   ├── style.css            Luxury casino styling
-│   └── script.js            # Client-side game logic
-├── 📄 run.py                # Main server entry point
-├── 📄 start_server.py       # Automated setup script
-├── 📄 config.py             # Application configuration
-├── 📄 requirements.txt      # Python dependencies
-└── 📄 .env.example          # Environment variables template
-```
-
-## 🔧 Configuration
-
-### Environment Variables
-Create a `.env` file from `.env.example`:
-
-```env
-# Application Security
-SECRET_KEY=your-super-secret-key-here-change-in-production
-
-# Debug & Development
-FLASK_DEBUG=True
-FLASK_RUN_HOST=127.0.0.1
-FLASK_RUN_PORT=5000
-
-# Database
-DATABASE_URL=sqlite:///poker.db
-
-# CORS Settings (production)
-# CORS_ALLOWED_ORIGINS=http://localhost:3000,https://yourdomain.com
-```
-
-### Game Settings
-Modify `config.py` to adjust:
-- `DEFAULT_CHIPS`: Starting chip count (default: 10000)
-- `SMALL_BLIND` / `BIG_BLIND`: Blind amounts
-- `MAX_PLAYERS_PER_GAME`: Maximum players per table
-
-## 🎮 AI Difficulty Levels
-
-### 🤖 Easy AI
-- Makes random decisions with basic strategy
-- Good for beginners learning the game
-- Occasionally makes questionable plays
-
-### 🤖 Normal AI  
-- Uses hand strength evaluation
-- Considers position and pot odds
-- Balanced aggression and caution
-
-### 🤖 Hard AI
-- Advanced hand reading and range analysis
-- Position-aware betting strategies
-- Pot odds and implied odds calculations
-- Capable of bluffing and semi-bluffing
-
-## 🔌 API Documentation
-
-### Socket.IO Events
-
-#### Client → Server
-- `join_game`: Join a game room
-  ```json
-  { "username": "string", "room_id": "string" }
-  ```
-- `start_game`: Start a new hand
-- `player_action`: Submit player action
-  ```json
-  { "action": "fold|check|call|bet|raise", "amount": number }
-  ```
-
-#### Server → Client
-- `game_state_update`: Real-time game state
-- `game_over`: Round completion with winners
-- `error`: Error notifications
-
-### HTTP API Endpoints
-- `POST /api/user`: Create new user
-- `GET /api/user/<username>`: Get user information  
-- `POST /api/reset_user`: Reset user chips
-- `GET /api/games`: List active games
-- `GET /api/game/<room_id>`: Get specific game state
-
-## 🚀 Deployment
-
-### Production Deployment
-1. Set `FLASK_DEBUG=False` in `.env`
-2. Generate a strong `SECRET_KEY`
-3. Configure production database (PostgreSQL recommended)
-4. Set proper CORS origins
-5. Use gunicorn for production server:
-   ```bash
-   gunicorn -k eventlet -w 1 run:app
-   ```
-
-### Docker (Optional)
-```dockerfile
-FROM python:3.9-slim
-WORKDIR /app
-COPY requirements.txt .
-RUN pip install -r requirements.txt
-COPY . .
-CMD ["python", "run.py"]
-```
-
-## 🐛 Troubleshooting
-
-### Common Issues
-
-**Server won't start:**
-- Check Python version (requires 3.8+)
-- Verify all dependencies are installed
-- Check port 5000 is available
-
-**Connection errors:**
-- Ensure server is running
-- Check browser console for WebSocket errors
-- Verify CORS settings if accessing from different domain
-
-**Game logic issues:**
-- Check server logs for error messages
-- Verify database file permissions
-- Reset game state if needed
-
-### Logs
-- Server logs: `poker_server.log`
-- Real-time logs: Browser developer console
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-### Development Guidelines
-- Follow PEP 8 for Python code
-- Use meaningful commit messages
-- Add tests for new features
-- Update documentation accordingly
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- Poker hand evaluation logic inspired by open-source poker libraries
-- UI design inspired by luxury casino aesthetics
-- Socket.IO for real-time communication capabilities
-- Flask community for excellent web framework documentation
-
----
-
-**Enjoy your game of Midnight Luxury Poker!** 🎰♠️♥️♣️♦️
-
-For questions or support, please check the issues section or contribute to the documentation.
-```
-
-This README provides:
-
-1. **Comprehensive overview** of the project and its features
-2. **Easy setup instructions** using your automated scripts
-3. **Detailed technical documentation** of the architecture
-4. **Game rules and AI descriptions** for users
-5. **API documentation** for developers
-6. **Deployment guides** for production
-7. **Troubleshooting section** for common issues
-
-The structure follows best practices for open-source projects and should help both users and developers understand and work with your codebase effectively.
+📝 License
+This project is released under the MIT License. See the LICENCE file for details.
